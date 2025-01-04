@@ -1,4 +1,4 @@
-module github.com/madhavan-21/dubug-X
+module github.com/madhavan-21/dubugX
 
 go 1.22.2
 
