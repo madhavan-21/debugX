@@ -3,7 +3,7 @@
 We love to have contributors! Here are the steps for contributing:
 
 1. Fork the repository
-2. Clone your fork (`git clone https://github.com/yourusername/debugX.git`)
+2. Clone your fork (`git clone https://github.com/madhavan-21/debugX.git`)
 3. Create a branch for your changes (`git checkout -b my-new-feature`)
 4. Make your changes
 5. Write tests for your changes (if applicable)
