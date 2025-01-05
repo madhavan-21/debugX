@@ -12,14 +12,15 @@ import (
 
 // TODO: add give the overall function execution flow tree outputs
 // TODO: give least recently given function execution flow tree output
+
 // Log levels
 const (
-	INFO         = "INFO"
-	ERROR        = "ERROR"
-	WARN         = "WARN"
-	RES          = "RES"
-	ALL          = "ALL"
-	FLOW_CHECKER = "FLOW_CHECKER"
+	info         = "INFO"
+	err          = "ERROR"
+	warn         = "WARN"
+	res          = "RES"
+	all          = "ALL"
+	flow_checker = "FLOW_CHECKER"
 )
 
 // Log level enable states
@@ -66,18 +67,18 @@ func DebugControl(levels ...string) {
 		for _, l := range levels {
 			l = strings.ToUpper(l)
 			switch l {
-			case INFO:
+			case info:
 				infoEnabled = true
-			case ERROR:
+			case err:
 				errorEnabled = true
-			case WARN:
+			case warn:
 				warnEnabled = true
-			case RES:
+			case res:
 				resEnabled = true
-			case FLOW_CHECKER:
+			case flow_checker:
 				flowCheckerEnabled = true
 			default:
-			case ALL:
+			case all:
 				// If 'ALL' is explicitly passed, disable all debug levels
 				allDebugEnabled = false
 				infoEnabled, errorEnabled, warnEnabled, resEnabled, flowCheckerEnabled = false, false, false, false, false
@@ -89,28 +90,28 @@ func DebugControl(levels ...string) {
 // Log an info message if enabled
 func Info(format string, args ...interface{}) {
 	if allDebugEnabled || infoEnabled {
-		logMessage(INFO, infoPrinter, format, args...)
+		logMessage(info, infoPrinter, format, args...)
 	}
 }
 
 // Log an error message if enabled
 func Error(format string, args ...interface{}) {
 	if allDebugEnabled || errorEnabled {
-		logMessage(ERROR, errorPrinter, format, args...)
+		logMessage(err, errorPrinter, format, args...)
 	}
 }
 
 // Log a warning message if enabled
 func Warn(format string, args ...interface{}) {
 	if allDebugEnabled || warnEnabled {
-		logMessage(WARN, warnPrinter, format, args...)
+		logMessage(warn, warnPrinter, format, args...)
 	}
 }
 
 // Log a result message if enabled
 func Res(format string, args ...interface{}) {
 	if allDebugEnabled || resEnabled {
-		logMessage(RES, resPrinter, format, args...)
+		logMessage(res, resPrinter, format, args...)
 	}
 }
 
@@ -131,7 +132,7 @@ func FlowChecker(params ...interface{}) func() {
 		time := getTimestamp()
 
 		paramString := fmt.Sprintf("%v", params)
-		flowFunction := fmt.Sprintf("Function %s entered with params: %s", function, paramString)
+		flowFunction := fmt.Sprintf("Function %s entered with parammeter: %s", function, paramString)
 		fmt.Println(timePrinter(fmt.Sprintf("Time: %s", time)), filePrinter(fmt.Sprintf("File: %s", shortFile)), linePrinter(fmt.Sprintf("Line: %d", line)), flowPrinter(flowFunction))
 
 		return func() {
