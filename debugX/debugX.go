@@ -120,7 +120,7 @@ func Warn(format string, args ...interface{}) {
 		formattedMessage := fmt.Sprintf(format, args...)
 		file, line := getCallerInfo()
 		time := getTimestamp()
-		fmt.Println(timePrinter(fmt.Sprintf("Time: %s", time)), filePrinter(fmt.Sprintf("File: %s", file)), linePrinter(fmt.Sprintf("Line:%d", line)), warnPrinter(fmt.Sprintf("%s: %s", "INFO", formattedMessage)))
+		fmt.Println(timePrinter(fmt.Sprintf("Time: %s", time)), filePrinter(fmt.Sprintf("File: %s", file)), linePrinter(fmt.Sprintf("Line:%d", line)), warnPrinter(fmt.Sprintf("%s: %s", "WARN", formattedMessage)))
 	}
 }
 
@@ -130,7 +130,7 @@ func Res(format string, args ...interface{}) {
 		formattedMessage := fmt.Sprintf(format, args...)
 		file, line := getCallerInfo()
 		time := getTimestamp()
-		fmt.Println(timePrinter(fmt.Sprintf("Time: %s", time)), filePrinter(fmt.Sprintf("File: %s", file)), linePrinter(fmt.Sprintf("Line:%d", line)), resPrinter(fmt.Sprintf("%s: %s", "INFO", formattedMessage)))
+		fmt.Println(timePrinter(fmt.Sprintf("Time: %s", time)), filePrinter(fmt.Sprintf("File: %s", file)), linePrinter(fmt.Sprintf("Line:%d", line)), resPrinter(fmt.Sprintf("%s: %s", "RES", formattedMessage)))
 	}
 }
 
