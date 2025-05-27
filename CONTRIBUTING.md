@@ -10,4 +10,4 @@ We love to have contributors! Here are the steps for contributing:
 6. Run the tests
 7. Commit your changes (`git commit -am 'Add feature'`)
 8. Push your changes to your fork (`git push origin my-new-feature`)
-9. Submit a pull request
+9. Submit a pull request.
